@@ -68,8 +68,8 @@ export default function Home() {
     { shouldRetryOnError: false }
   );
 
-  const user = data as GitHubUser;
-  const TypedError = error as ErrorResponse;
+  const user: GitHubUser = data;
+  const TypedError: ErrorResponse = error;
 
   return (
     <div className="md:max-w-lg w-full px-12">
@@ -86,7 +86,11 @@ export default function Home() {
           "w-full border border-slate-200 shadow-sm rounded-md flex justify-between"
         )}
       >
-        {!username && <p className="flex items-center justify-center w-full">Please input username</p>}
+        {!username && (
+          <p className="flex items-center justify-center w-full">
+            Please input username
+          </p>
+        )}
         {error && (
           <p className="flex items-center justify-center w-full">
             {TypedError.message}
